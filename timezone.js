@@ -9,9 +9,7 @@ module.exports.get = (event, context, callback) => {
   const addresses = [].concat(qs.address); //convert one address into array
 
   const googleMaps = require('@google/maps').createClient({
-    key: qs.key, // need to pass in the Google key on the querstring
-    Promise: Promise
-  });
+  const googleMaps = require('./googlemaps').with(qs.key);
 
   googleMaps.geocode({
       address: addresses[0]//'Sydney Opera House'
