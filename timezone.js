@@ -8,7 +8,6 @@ module.exports.get = (event, context, callback) => {
   const qs = event.queryStringParameters;
   const addresses = [].concat(qs.address); //convert one address into array
 
-  const googleMaps = require('@google/maps').createClient({
   const googleMaps = require('./googlemaps').with(qs.key);
 
   googleMaps.geocode({
